@@ -5,7 +5,7 @@ const Page = () => {
   return (
     <div className={styles.page}>
       <div className={styles.column}>
-        <p>Sign In</p>
+        <p>85952548****</p>
       </div>
       <div
         className={styles.column}

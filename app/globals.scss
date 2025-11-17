@@ -2,38 +2,34 @@
 @use "reset";
 
 /** COLORS */
-$colors: (
-  "primary": #c8ee44,
-  "secondary": #29a073,
-  "tertiary": #ebe8e8,
-  "gray": #fafafa,
-  "gray-2": #f8f8f8,
-  "key-black": #363a3f,
-  "text-1": #1b212d,
-  "text-2": #929eae,
-  "black": #000000,
-  "white": #ffffff,
-);
+$color-primary: #c8ee44;
+$color-secondary: #29a073;
+$color-tertiary: #ebe8e8;
+$color-gray: #fafafa;
+$color-gray-2: #f8f8f8;
+$color-key-black: #363a3f;
+$color-text-1: #1b212d;
+$color-text-2: #929eae;
+$color-black: #000000;
+$color-white: #ffffff;
 
 /** FONT SIZES */
-$font-sizes: (
-  "h1": 30px,
-  "h2": 24px,
-  "h3": 20px,
-  "h4": 18px,
-  "h5": 16px,
-  "h6": 14px,
-  "body-1": 16px,
-  "body-2": 14px,
-  "body-3": 12px,
-  "body-4": 10px,
-  "body-5": 8px,
-  "body-6": 6px,
-);
+$h1: 30px;
+$h2: 24px;
+$h3: 20px;
+$h4: 18px;
+$h5: 16px;
+$h6: 14px;
+$body-1: 16px;
+$body-2: 14px;
+$body-3: 12px;
+$body-4: 10px;
+$body-5: 8px;
+$body-6: 6px;
 
 h1 {
   font-weight: 600;
-  font-size: map.get($font-sizes, "h1");
+  font-size: $h1;
   line-height: 100%;
 }
 
@@ -44,10 +40,20 @@ h3 {
 }
 
 p {
+  font-family: var(--font-gordita);
+  font-size: $h1;
+  font-weight: 700
+  
 }
 
 small {
 }
 
 label {
+}
+
+.caption {
+  font-size: $body-2;
+  color: $color-text-2;
+  font-family: var(--font-gordita);
 }
