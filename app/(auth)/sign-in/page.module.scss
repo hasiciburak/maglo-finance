@@ -1,3 +1,5 @@
+@use "../../../app/styles/theme.scss" as *;
+
 .page {
   display: flex;
   flex-direction: row;
@@ -6,3 +8,4 @@
 .column {
   width: 50%;
 }
+

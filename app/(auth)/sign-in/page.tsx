@@ -1,28 +1,18 @@
-import Image from "next/image";
+import FormSignIn from "@/components/auth/form-sign-in";
 import styles from "./page.module.scss";
 
-const Page = () => {
+const SignInPage = () => {
   return (
-    <div className={styles.page}>
-      <div className={styles.column}>
-        <p>85952548****</p>
+    <div className={styles.container}>
+      <div className={styles.greeting}>
+        <h1>Sign In</h1>
+        <p className="caption">Welcome Back! Please enter your details</p>
       </div>
-      <div
-        className={styles.column}
-        style={{ position: "relative", minHeight: "100vh" }}
-      >
-        <Image
-          src="/login-bg.png"
-          alt="login-bg"
-          fill
-          style={{
-            objectFit: "cover",
-          }}
-          sizes="50vw"
-        />
+      <div className={styles.form}>
+        <FormSignIn />
       </div>
     </div>
   );
 };
 
-export default Page;
+export default SignInPage;

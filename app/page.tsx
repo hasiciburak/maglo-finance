@@ -1,13 +1,21 @@
-import Image from "next/image";
-import styles from "./page.module.scss";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/ui/store/auth";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <p>Login</p>
-        <Image src="/bottom-line.svg" alt="login" width={50} height={8} />
-      </main>
-    </div>
-  );
+  const router = useRouter();
+  const { isAuthenticated } = useAuthStore();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/dashboard");
+    } else {
+      router.push("/sign-in");
+    }
+  }, [isAuthenticated, router]);
+
+  // Return null or a loading state while redirecting
+  return null;
 }

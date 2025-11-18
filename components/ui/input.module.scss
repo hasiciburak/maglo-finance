@@ -1,0 +1,27 @@
+@use "../../app/styles/theme" as *;
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: $body-2;
+  color: $color-text-1;
+  font-family: var(--font-gordita);
+}
+
+.input input {
+  border: 1px solid #f2f2f2;
+  padding: 20px;
+  font-size: $body-2;
+  border-radius: 10px;
+  font-weight: 500;
+  color: $color-text-3;
+}
+
+.input input:focus {
+  outline: none;
+  border-color: $color-text-1;
+}

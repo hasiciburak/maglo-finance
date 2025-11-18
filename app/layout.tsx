@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Kumbh_Sans } from "next/font/google";
 import localFont from "next/font/local";
-import "./globals.scss";
+import "./styles/globals.scss";
 import { Providers } from "./providers";
 
 const kumbhSans = Kumbh_Sans({
