@@ -27,12 +27,13 @@ const FormSignIn = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <div>
+      <div className={styles.formGroup}>
         <Input
           label="Email"
           type="email"
           placeholder="johndoe@example.com"
           className={styles.email}
+          labelClassName={styles.label}
           {...register("email")}
         />
         {errors.email && (
@@ -40,12 +41,13 @@ const FormSignIn = () => {
         )}
       </div>
 
-      <div>
+      <div className={styles.formGroup}>
         <Input
           label="Password"
           type="password"
           placeholder="********"
           className={styles.password}
+          labelClassName={styles.label}
           {...register("password")}
         />
         {errors.password && (
@@ -53,10 +55,18 @@ const FormSignIn = () => {
         )}
       </div>
 
-      <Button variant="primary" type="submit" disabled={isPending}>
+      <Button
+        variant="primary"
+        type="submit"
+        disabled={isPending}
+        className={styles.button}
+      >
         {isPending ? "Signing In..." : "Sign In"}
       </Button>
-      <Button variant="secondary">
+      <Button
+        variant="secondary"
+        className={`${styles.button} ${styles.googleButton}`}
+      >
         <Image
           src="/google-logo.svg"
           alt="Google Logo"
@@ -64,10 +74,10 @@ const FormSignIn = () => {
           height={24}
           className={styles.googleLogo}
         />
-        Sign Up With Google
+        Sign In With Google
       </Button>
 
-      <small>
+      <small className={styles.dontHaveAccountText}>
         Don&apos;t have an account? &nbsp;
         <Link href="/sign-up" className={styles.link}>
           Sign Up

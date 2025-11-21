@@ -3,6 +3,7 @@
 import { useSignUp } from "@/ui/hooks";
 import { SignUpFormData, signUpSchema } from "@/ui/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import Button from "../ui/button";
@@ -26,36 +27,40 @@ const FormSignUp = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <div>
+      <div className={styles.formGroup}>
         <Input
           label="Full Name"
           type="text"
           placeholder="John Doe"
-          className={styles.name}
+          className={styles.formInput}
+          labelClassName={styles.label}
           {...register("fullName")}
         />
         {errors.fullName && (
           <span className={styles.error}>{errors.fullName.message}</span>
         )}
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <Input
           label="Email"
           type="email"
           placeholder="johndoe@example.com"
-          className={styles.email}
+          className={styles.formInput}
+          labelClassName={styles.label}
           {...register("email")}
         />
         {errors.email && (
           <span className={styles.error}>{errors.email.message}</span>
         )}
       </div>
-      <div>
+
+      <div className={styles.formGroup}>
         <Input
           label="Password"
           type="password"
           placeholder="********"
-          className={styles.password}
+          className={styles.formInput}
+          labelClassName={styles.label}
           {...register("password")}
         />
         {errors.password && (
@@ -63,12 +68,30 @@ const FormSignUp = () => {
         )}
       </div>
 
-      <Button variant="primary" type="submit" disabled={isPending}>
-        {isPending ? "Signing Up..." : "Sign Up"}
+      <Button
+        variant="primary"
+        type="submit"
+        disabled={isPending}
+        className={styles.button}
+      >
+        {isPending ? "Creating Account..." : "Create Account"}
       </Button>
-      <Button variant="secondary">Sign Up With Google</Button>
 
-      <small>
+      <Button
+        variant="secondary"
+        className={`${styles.button} ${styles.googleButton}`}
+      >
+        <Image
+          src="/google-logo.svg"
+          alt="Google Logo"
+          width={24}
+          height={24}
+          className={styles.googleLogo}
+        />
+        Sign Up With Google
+      </Button>
+
+      <small className={styles.haveAccountText}>
         Already have an account? &nbsp;
         <Link href="/sign-in" className={styles.link}>
           Sign In

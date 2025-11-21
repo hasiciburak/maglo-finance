@@ -6,24 +6,25 @@
 }
 
 .column {
+  position: relative;
   width: 50%;
 
   &:first-child {
     padding-left: 100px;
     padding-right: 100px;
-    display: flex;
-    flex-direction: column;
   }
 
   .children {
     display: flex;
     align-items: center;
     flex: 1;
+    height: 100%;
   }
 }
 
 .logo {
-  padding: 40px 0;
+  position: absolute;
+  top: 40px;
 }
 
 .imageContainer {

@@ -5,14 +5,15 @@ type InputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {
-  label: string;
+  label?: string;
+  labelClassName?: string | undefined;
 };
 
-const Input = (props: InputProps) => {
+const Input = ({ label, labelClassName, ...props }: InputProps) => {
   return (
     <div className={styles.input}>
-      <label htmlFor={props.id} className={styles.label}>
-        {props.label}
+      <label htmlFor={props.id} className={labelClassName}>
+        {label}
       </label>
       <input {...props} />
     </div>
