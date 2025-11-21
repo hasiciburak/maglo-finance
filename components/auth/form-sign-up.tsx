@@ -1,7 +1,7 @@
 "use client";
 
-import { SignUpFormData, signUpSchema } from "@/ui/lib/validations";
 import { useSignUp } from "@/ui/hooks";
+import { SignUpFormData, signUpSchema } from "@/ui/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -21,10 +21,7 @@ const FormSignUp = () => {
   const { mutate: signUp, isPending } = useSignUp();
 
   const onSubmit = (data: SignUpFormData) => {
-    // Remove confirmPassword before sending to API
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { confirmPassword, ...signUpData } = data;
-    signUp(signUpData);
+    signUp(data);
   };
 
   return (
@@ -35,10 +32,10 @@ const FormSignUp = () => {
           type="text"
           placeholder="John Doe"
           className={styles.name}
-          {...register("name")}
+          {...register("fullName")}
         />
-        {errors.name && (
-          <span className={styles.error}>{errors.name.message}</span>
+        {errors.fullName && (
+          <span className={styles.error}>{errors.fullName.message}</span>
         )}
       </div>
       <div>
@@ -70,6 +67,7 @@ const FormSignUp = () => {
         {isPending ? "Signing Up..." : "Sign Up"}
       </Button>
       <Button variant="secondary">Sign Up With Google</Button>
+
       <small>
         Already have an account? &nbsp;
         <Link href="/sign-in" className={styles.link}>

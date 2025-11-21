@@ -2,6 +2,7 @@
 
 import { SignInFormData, signInSchema } from "@/ui/lib/validations";
 import { useLogin } from "@/ui/hooks";
+import Image from "next/image";
 import Button from "../ui/button";
 import Input from "../ui/input";
 import styles from "./form-sign-in.module.scss";
@@ -21,7 +22,7 @@ const FormSignIn = () => {
   const { mutate: login, isPending } = useLogin();
 
   const onSubmit = (data: SignInFormData) => {
-    login(data);
+    login({ email: data.email, password: data.password });
   };
 
   return (
@@ -55,8 +56,17 @@ const FormSignIn = () => {
       <Button variant="primary" type="submit" disabled={isPending}>
         {isPending ? "Signing In..." : "Sign In"}
       </Button>
-      <Button variant="secondary">Sign Up With Google</Button>
-      
+      <Button variant="secondary">
+        <Image
+          src="/google-logo.svg"
+          alt="Google Logo"
+          width={24}
+          height={24}
+          className={styles.googleLogo}
+        />
+        Sign Up With Google
+      </Button>
+
       <small>
         Don&apos;t have an account? &nbsp;
         <Link href="/sign-up" className={styles.link}>

@@ -1,11 +1,7 @@
 @use "../../../app/styles/theme.scss" as *;
 
-.page {
+.container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.column {
-  width: 50%;
-}
-
