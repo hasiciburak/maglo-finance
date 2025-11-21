@@ -1,0 +1,49 @@
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 320px;
+  height: 100vh;
+  gap: 0;
+}
+
+/* Main Content */
+.main-content {
+  grid-column: 2;
+  padding: 32px 40px;
+  overflow-y: auto;
+}
+
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* Chart and Table Section */
+.content-grid {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 32px;
+}
+
+/* Right Panel */
+.right-panel {
+  grid-column: 3;
+  padding: 32px 24px;
+  background: #fafafa;
+  border-left: 1px solid #e5e5e5;
+}
+
+/* Scheduled Transfers List */
+.transfers-list {
+  display: grid;
+  gap: 16px;
+}
+
+.transfer-item {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}

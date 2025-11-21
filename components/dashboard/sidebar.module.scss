@@ -1,0 +1,105 @@
+@use "../../app/styles/theme" as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 30px 25px 100px;
+  background: $color-gray;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.logo-text {
+  font-family: var(--font-gordita);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 100%;
+  color: $color-text-1;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 81px 14px 15px;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba($color-text-1, 0.05);
+  }
+
+  &.active {
+    background-color: $color-primary;
+
+    .nav-icon {
+      path {
+        fill: $color-text-1;
+      }
+    }
+
+    .nav-text {
+      color: $color-text-1;
+      font-weight: 600;
+    }
+  }
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+
+  path {
+    transition: fill 0.2s ease;
+  }
+}
+
+.nav-text {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 100%;
+  color: $color-text-2;
+  white-space: nowrap;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
